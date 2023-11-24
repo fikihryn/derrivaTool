@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Turunan Fungsi Aljabar Calculator</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <!-- Bagian Kalkulator -->
+    <section id="Calculator" class="Calculator">
+        <!-- Bagian Header -->
+        <header>
+            <!-- Logo -->
+            <a href="#"><img src="logo.png" class="logo"></a>
+            <!-- Link Navigasi -->
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#Calculator">Kalkulator</a></li>
+            </ul>
+        </header>
+
+        <!-- Konten Utama Bagian Kalkulator -->
+        <div class="content-calculator">
+            <!-- Kotak Teks -->
+            <div class="textBox-calculator">
+                <!-- Judul dengan Span untuk Pemformatan -->
+                <h2>Yuk <span>Hitung</span></h2>
+                <!-- Paragraf dengan Informasi -->
+                <p>Secara umum, turunan fungsi aljabar adalah suatu konsep matematika yang digunakan untuk mengukur perubahan atau tingkat pertumbuhan suatu fungsi matematika terhadap variabel independen. Dalam konteks fungsi aljabar, ini berarti kita ingin memahami bagaimana perubahan dalam variabel independen. </p>
+            </div>
+
+            <!-- Input Kalkulator dan Tombol -->
+            <div class="calculator">
+                <!-- Label untuk Input -->
+                <label for="inputFunction">Masukkan fungsi aljabar :</label>
+                <!-- Kotak Input -->
+                <input type="text" id="inputFunction" placeholder="Contoh: x^2 + 2x + 1">
+                <!-- Tombol untuk Memulai Perhitungan -->
+                <button onclick="validateAndCalculate()">Hitung f'(x) </button>
+                <!-- Area Tampilan Hasil -->
+                <p id="result"></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sertakan pustaka math.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"></script>
+
+    <!-- Bagian JavaScript -->
+    <script type="text/javascript">
+        // Fungsi untuk Validasi dan Menghitung Turunan
+        function validateAndCalculate() 
+        {
+            // Dapatkan elemen input
+            const inputFunctionElement = document.getElementById('inputFunction');
+            // Dapatkan nilai dari input
+            const inputFunction = inputFunctionElement.value;
+
+            // Periksa apakah fungsi input mengandung huruf besar
+            if (inputFunction !== inputFunction.toLowerCase()) {
+                alert("Harap gunakan huruf kecil untuk penulisan fungsi aljabar.");
+                // Konversi input menjadi huruf kecil
+                inputFunctionElement.value = inputFunction.toLowerCase();
+                return;
+            }
+
+            try {
+                // Hitung turunan menggunakan pustaka math.js
+                const derivative = math.derivative(inputFunction, 'x').toString();
+                // Tampilkan hasil turunan
+                document.getElementById('result').innerText = `Turunan: ${derivative}`;
+            } catch (error) {
+                // Tampilkan pesan kesalahan untuk input yang tidak valid
+                document.getElementById('result').innerText = 'Input tidak valid';
+            }
+        }
+    </script>
+</body>
+</html>

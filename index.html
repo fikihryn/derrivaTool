@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Turunan Fungsi Aljabar Landing Page</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body>
+    <!-- Bagian Home Page -->
+    <section id="Home" class="Home">
+        <!-- Lingkaran Dekoratif -->
+        <div class="circle"></div>
+        <!-- Bagian Header -->
+        <header>
+            <!-- Logo -->
+            <a href="#"><img src="logo.png" class="logo"></a>
+            <!-- Navigasi -->
+            <ul>
+                <li><a href="#Home" id="homeLink">Home</a></li>
+                <li><a href="calculator.html" id="calculatorLink">Kalkulator</a></li>
+            </ul>
+        </header>
+        <!-- Konten Utama -->
+        <div class="content">
+            <!-- Kotak Teks -->
+            <div class="textBox">
+                <!-- Judul Kelompok -->
+                <h2>KELOMPOK 2<br>It's Just A <span>Calculator</span></h2>
+            </div>
+            <!-- Kotak Gambar -->
+            <div class="imgBox">
+                <!-- Gambar Profil -->
+                <img src="logosiliwangi.png" class="profil">
+            </div>
+        </div>
+        <!-- Thumbnail Profil -->
+        <ul class="thumb">
+            <li><img src="arbi jas.png" onclick="imgSlider('profil1.png')"></li>
+            <li><img src="fiki jas.png" onclick="imgSlider('profil2.png')"></li>
+            <li><img src="hilma jas.png" onclick="imgSlider('profil3.png')"></li>
+        </ul>
+    </section>
+
+    <!-- Script JavaScript untuk Mengganti Gambar Profil -->
+    <script type="text/javascript">
+        function imgSlider(anything) {
+            // Mengganti sumber gambar profil
+            document.querySelector('.profil').src = anything;
+        }
+    </script>
+</body>
+</html>
